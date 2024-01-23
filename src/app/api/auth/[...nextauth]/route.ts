@@ -8,7 +8,7 @@ import { Adapter } from "next-auth/adapters";
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
-export const authOptions : NextAuthOptions = {
+ const authOptions : NextAuthOptions = {
     adapter :PrismaAdapter(prisma as PrismaClient) as Adapter,
     providers : [
         GithubProvider({
@@ -35,5 +35,5 @@ export const authOptions : NextAuthOptions = {
 const handler = NextAuth(authOptions);
 
 export {
-    handler as GET , handler as POST
+    handler as GET , handler as POST , authOptions
 }
