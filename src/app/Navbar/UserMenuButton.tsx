@@ -4,6 +4,8 @@ import { Session } from "next-auth"
 import Image from "next/image";
 import profilePicPlaceholder from "@/assets/profile-pic-placeholder.png";
 import { signIn, signOut } from "next-auth/react";
+import AddProductPage from "../add-product/page";
+import Link from "next/link";
 
 interface UserMenuButtonProps{
     session : Session | null
@@ -44,10 +46,19 @@ const user =  session?.user;
             className="dropdown-content menu rounded-box menu-sm z-30 mt-3 w-52 bg-base-100 p-2 shadow">
 
                 <li>
-                    {user ?
+                    {user ?<>
                     <button onClick={()=> signOut({callbackUrl:"/"})}>Sign out</button>
+                    <Link
+                        href="/add-product"
+                        className="mt-3"
+                        >
+                            Add Product
+                        </Link>
+                    </>
                     :
-                     <button onClick={()=> signIn()}>Sign in</button>}
+                     <button onClick={()=> signIn()}>Sign in</button>
+                     
+                     }
                 </li>
 
             </ul>
