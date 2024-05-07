@@ -14,7 +14,7 @@ export default function ProductCards({ product }: ProductCardprops) {
   return (
     <Link
       href={"/products/" + product.id}
-      className="card w-full bg-base-100 hover:shadow-xl transition-shadow"
+      className="card w-full bg-base-100 hover:shadow-xl shadow-slate-700 transition-shadow group"
     >
       <figure>
         <Image
@@ -29,7 +29,7 @@ export default function ProductCards({ product }: ProductCardprops) {
         <h2 className="card-title">{product.name}</h2>
         {isNew && <div className="badge badge-secondary"> NEW</div>}
         <p>{product.description}</p>
-        <PriceTag price={product.price} />
+        <PriceTag className="text-green-600 group-hover:text-blue-500" price={product.price} />
       </div>
     </Link>
   );
