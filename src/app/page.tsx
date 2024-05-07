@@ -11,7 +11,7 @@ interface HomeProps {
 export default async function Home({searchParams :{page = "1"}}: HomeProps) {
   const currentPage = parseInt(page)
 
-  const pageSize = 9
+  const pageSize = 12
   const heroItemCount= 1
 
   const totalItemCount = await prisma.product.count();

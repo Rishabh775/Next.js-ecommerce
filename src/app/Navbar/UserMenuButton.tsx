@@ -15,6 +15,7 @@ interface UserMenuButtonProps{
 export default function UserMenuButton ({session}:UserMenuButtonProps){
 const user =  session?.user;
 
+
     return(
         <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -49,7 +50,7 @@ const user =  session?.user;
                     {user ?<>
                     <button onClick={()=> signOut({callbackUrl:"/"})}>Sign out</button>
                     <Link
-                        href="/add-product"
+                        href={user?.email ==="rishabh797604@gmail.com"? "/add-product" :""}
                         className="mt-3"
                         >
                             Add Product
